@@ -89,7 +89,7 @@ const Notice = () => {
   };
 
   return (
-    <>
+    <div className="w-4/5">
       {modalEdit && (
         <Modal handleModal={handleModalEdit} handleSubmit={handleSubmitEdit}>
           <Modal.Header>공지글작성</Modal.Header>
@@ -136,30 +136,30 @@ const Notice = () => {
         </Modal>
       )}
       <div className="bg-white p-4 rounded-md w-full">
-        <div className=" flex items-center">
+        <div className="flex items-center">
           <div className="flex">
             <h2 className="text-gray-600 font-semibold">공지글 관리</h2>
           </div>
         </div>
         <div className="mx-4 sm:-mx-8 px-4 sm:px-8 py-4">
-          <div className="shadow rounded-lg">
+          <div className="relative shadow rounded-lg min-h-[700px] ">
             <div className="">
               <div>
                 <div className="flex px-4 py-3 border-b-2 border-gray-200 bg-gray-100">
-                  <div className="w-96 text-left text-xs font-semibold text-gray-600">TITLE</div>
-                  <div className="w-96 text-left text-xs font-semibold text-gray-600">CONTENT</div>
-                  <div className="w-52 text-left text-xs font-semibold text-gray-600">WRITER</div>
-                  <div className="w-72 text-left text-xs font-semibold text-gray-600">modifiedDate</div>
-                  <div className="w-36 text-left text-xs font-semibold text-gray-600">viewCount</div>
-                  <div className="w-36 text-left text-xs font-semibold text-gray-600">EDIT</div>
-                  <div className="text-left text-xs font-semibold text-gray-600">DELETE</div>
+                  <div className="w-2/5 text-left text-xs font-semibold text-gray-600">TITLE</div>
+                  <div className="w-2/5 text-left text-xs font-semibold text-gray-600">CONTENT</div>
+                  <div className="w-1/6 text-left text-xs font-semibold text-gray-600">WRITER</div>
+                  <div className="w-1/5 text-left text-xs font-semibold text-gray-600">modifiedDate</div>
+                  <div className="w-1/5 text-left text-xs font-semibold text-gray-600">viewCount</div>
+                  <div className="w-1/6 text-left text-xs font-semibold text-gray-600">EDIT</div>
+                  <div className="w-1/10 text-left text-xs font-semibold text-gray-600">DELETE</div>
                 </div>
               </div>
               <ul>
                 {data.totalElements ? data.content.map((board, index) => <TableItem2 key={index} data={board} />) : <li>등록된 유저가 없습니다.</li>}
               </ul>
             </div>
-            <div className="px-2 py-2 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
               <div className="inline-flex">
                 <span className="mr-4 py-2 text-xs font-semibold text-gray-600">{page + 1} page</span>
                 <button
@@ -178,12 +178,12 @@ const Notice = () => {
               </div>
             </div>
           </div>
-          <Button variant="primary" type="button" className=" border-b-2  px-4 border-gray-200 bg-gray-900" onClick={handleModalEdit}>
+          <Button variant="primary" type="button" className="border-b-2 px-4 border-gray-200 bg-gray-900 mt-10" onClick={handleModalEdit}>
             공지글쓰기
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -6,9 +6,9 @@ import SideBarItem from "../components/SideBarItem";
 
 const NavSideBar = () => {
   return (
-    <div className="bg-gray-100">
-      <div className="border-r w-56">
-        <div className="flex flex-col justify-between pt-2 pb-6">
+    <div className="bg-gray-100 h-full">
+      <div className="border-r w-56 h-full">
+        <div className="flex flex-col justify-between pt-2 pb-6 h-screen">
           <div>
             <ul className="mt-6 space-y-2 tracking-wide">
               <li>

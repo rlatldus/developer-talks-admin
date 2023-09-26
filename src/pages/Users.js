@@ -61,13 +61,13 @@ const Users = ({ type }) => {
   if (error) return <div>error...</div>;
 
   return (
-    <>
+    <div className="w-4/5">
       <div className="bg-white p-4 rounded-md">
         <div className=" flex items-center">
           <div className="flex">
             {type === "all" ? (
-              <>
-                <h2 className="text-gray-600 font-semibold">전체유저</h2>
+              <div className="flex items-center">
+                <h2 className="text-gray-600 font-semibold w-100">전체유저</h2>
                 <select
                   value={status}
                   onChange={handleStatus}
@@ -79,14 +79,14 @@ const Users = ({ type }) => {
                   <option value="BAN">BAN</option>
                   <option value="QUIT">QUIT</option>
                 </select>
-              </>
+              </div>
             ) : (
               <h2 className="text-gray-600 font-semibold">신고유저</h2>
             )}
           </div>
         </div>
         <div className="mx-4 sm:-mx-8 px-4 sm:px-8 py-4">
-          <div className="shadow rounded-lg">
+          <div className="relative shadow rounded-lg min-h-[700px]">
             <div className="">
               <div>
                 <div className="flex px-4 py-3 border-b-2 border-gray-200 bg-gray-100">
@@ -121,7 +121,7 @@ const Users = ({ type }) => {
                 )}
               </ul>
             </div>
-            <div className="px-2 py-2 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
               <div className="inline-flex">
                 <span className="mr-4 py-2 text-xs font-semibold text-gray-600">{page + 1} page</span>
                 <button
@@ -142,7 +142,7 @@ const Users = ({ type }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

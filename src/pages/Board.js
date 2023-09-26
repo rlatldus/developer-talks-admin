@@ -63,49 +63,63 @@ const Board = ({ type }) => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>error...</div>;
   return (
-    <>
+    <div className="w-4/5">
       <div className="bg-white p-4 rounded-md w-full">
-        <div className=" flex items-center">
+        <div className="flex items-center">
           <div className="flex">
             {type === "all" ? (
-              <>
-                <h2 className="text-gray-600 font-semibold">전체 글</h2>
+              <div className="flex items-center">
+                <h2 className="text-gray-600 font-semibold w-100">전체 글</h2>
 
                 <select
                   value={status}
                   onChange={handleStatus}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ml-2" // 스타일 추가
                 >
                   <option value="">--</option>
                   <option value="true">FORBIDDEN</option>
                   <option value="false">UNFORBIDDEN</option>
                 </select>
-              </>
+              </div>
             ) : (
               <h2 className="text-gray-600 font-semibold">신고 글</h2>
             )}
           </div>
         </div>
         <div className="mx-4 sm:-mx-8 px-4 sm:px-8 py-4">
-          <div className="shadow rounded-lg">
+          <div className="relative shadow rounded-lg min-h-[700px]">
             <div className="">
               <div>
-                <div className="flex px-4 py-3 border-b-2 border-gray-200 bg-gray-100">
-                  <div className="w-96 text-left text-xs font-semibold text-gray-600">NICKNAME</div>
-                  <div className="w-96 text-left text-xs font-semibold text-gray-600">TITLE</div>
-                  <div className="w-80 text-left text-xs font-semibold text-gray-600">CREATE_DATE</div>
+                <div className="flex items-center bg-gray-100">
+                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                    <span className="text-left text-xs font-semibold text-gray-600">NICKNAME</span>
+                  </div>
+                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                    <span className="text-left text-xs font-semibold text-gray-600">TITLE</span>
+                  </div>
+                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                    <span className="text-left text-xs font-semibold text-gray-600">CREATE_DATE</span>
+                  </div>
                   {type === "all" ? (
                     <>
-                      <div className="w-44 text-left text-xs font-semibold text-gray-600">VIEW_COUNT</div>
-                      <div className="w-44 text-left text-xs font-semibold text-gray-600">FAVORITE_COUNT</div>
-                      <div className="w-44 text-left text-xs font-semibold text-gray-600">RECOMMEND_COUNT</div>
+                      <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                        <span className="text-left text-xs font-semibold text-gray-600">VIEW_COUNT</span>
+                      </div>
+                      <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                        <span className="text-left text-xs font-semibold text-gray-600">FAVORITE_COUNT</span>
+                      </div>
+                      <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                        <span className="text-left text-xs font-semibold text-gray-600">RECOMMEND_COUNT</span>
+                      </div>
                     </>
                   ) : (
-                    <>
-                      <div className="w-80 text-left text-xs font-semibold text-gray-600">RESULT_TYPE</div>
-                    </>
+                    <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                      <span className="text-left text-xs font-semibold text-gray-600">RESULT_TYPE</span>
+                    </div>
                   )}
-                  <div className="text-left text-xs font-semibold text-gray-600">DETAIL</div>
+                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                    <span className="text-left text-xs font-semibold text-gray-600">DETAIL</span>
+                  </div>
                 </div>
               </div>
               <ul>
@@ -116,7 +130,7 @@ const Board = ({ type }) => {
                 )}
               </ul>
             </div>
-            <div className="px-2 py-2 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
               <div className="inline-flex">
                 <span className="mr-4 py-2 text-xs font-semibold text-gray-600">{page + 1} page</span>
                 <button
@@ -137,7 +151,7 @@ const Board = ({ type }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

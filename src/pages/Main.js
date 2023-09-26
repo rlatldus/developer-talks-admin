@@ -8,9 +8,15 @@ import { ROOT_API } from "../constants/api";
 const Main = () => {
   const token = localStorage.getItem("admin");
   const [chartData, setChartData] = useState([]);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const endDateDefault = new Date();
+  endDateDefault.setDate(endDateDefault.getDate() - 7); // 끝 날짜 기본값: 오늘로부터 7일 전
+  const [startDate, setStartDate] = useState(endDateDefault); // 시작 날짜 기본값: 오늘
+  const [endDate, setEndDate] = useState(new Date());
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    getUserList();
+  }, [startDate, endDate]); // 시작 날짜 또는 끝 날짜가 변경될 때 데이터 다시 가져오기
 
   async function getUserList() {
     try {
@@ -55,45 +61,48 @@ const Main = () => {
   }
 
   return (
-    <div className="container">
-      <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
-        {chartData.length > 0 && (
-          <BarChart width={800} height={400} data={chartData}>
-            <Bar dataKey="num" fill="#8884d8" />
-            <XAxis dataKey="name" />
-            <YAxis />
-          </BarChart>
-        )}
-      </div>
-
-      <div className="bg-white shadow-lg rounded-lg p-4">
-        <h1 className="text-xl font-bold mb-4">날짜 선택</h1>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">시작 날짜</label>
-            <DatePicker
-              className="border rounded p-2 w-full"
-              selected={startDate}
-              onChange={handleStartDateChange}
-              dateFormat="yyyy-MM-dd (EEE)"
-            />
-            {startDate && <p className="mt-2 text-sm text-gray-500">시작 날짜:  {formatDate(startDate)}</p>}
+    <div className="w-4/5">
+      <div className="mt500">
+        <div className="container">
+          <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
+            {chartData.length > 0 && (
+              <BarChart width={800} height={400} data={chartData}>
+                <Bar dataKey="num" fill="#8884d8" />
+                <XAxis dataKey="name" />
+                <YAxis />
+              </BarChart>
+            )}
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">끝 날짜</label>
-            <DatePicker
-              className="border rounded p-2 w-full"
-              selected={endDate}
-              onChange={handleEndDateChange}
-              dateFormat="yyyy-MM-dd (EEE)"
-            />
-            {endDate && <p className="mt-2 text-sm text-gray-500">끝 날짜: {formatDate(endDate)}</p>}
+
+          <div className="bg-white shadow-lg rounded-lg p-4">
+            <div className="mb-4">
+              <h1 className="text-xl font-bold mb-4">방문자 수 조회</h1>
+              <span>조회할 날짜를 선택해주세요</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">시작 날짜</label>
+                <DatePicker
+                  className="border rounded p-2 w-full"
+                  selected={startDate}
+                  onChange={handleStartDateChange}
+                  dateFormat="yyyy-MM-dd (EEE)"
+                />
+                {startDate && <p className="mt-2 text-sm text-gray-500">시작 날짜:  {formatDate(startDate)}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">끝 날짜</label>
+                <DatePicker
+                  className="border rounded p-2 w-full"
+                  selected={endDate}
+                  onChange={handleEndDateChange}
+                  dateFormat="yyyy-MM-dd (EEE)"
+                />
+                {endDate && <p className="mt-2 text-sm text-gray-500">끝 날짜: {formatDate(endDate)}</p>}
+              </div>
+            </div>
           </div>
         </div>
-
-        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onClick={getUserList} disabled={!startDate || !endDate || isLoading}>
-          날짜 선택
-        </button>
       </div>
     </div>
   );
