@@ -66,7 +66,7 @@ const Main = () => {
         <div className="container">
           <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
             {chartData.length > 0 && (
-              <BarChart width={800} height={400} data={chartData}>
+              <BarChart width={1200} height={400} data={chartData}>
                 <Bar dataKey="num" fill="#8884d8" />
                 <XAxis dataKey="name" />
                 <YAxis />

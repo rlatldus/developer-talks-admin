@@ -90,34 +90,34 @@ const Board = ({ type }) => {
           <div className="relative shadow rounded-lg min-h-[700px]">
             <div className="">
               <div>
-                <div className="flex items-center bg-gray-100">
-                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                <div className="flex items-center bg-gray-100 text-center">
+                  <div className="w-1/5 px-4 py-3 border-b-2 border-gray-200">
                     <span className="text-left text-xs font-semibold text-gray-600">NICKNAME</span>
                   </div>
-                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                  <div className="w-1/3 px-4 py-3 border-b-2 border-gray-200">
                     <span className="text-left text-xs font-semibold text-gray-600">TITLE</span>
                   </div>
-                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                  <div className="w-2/5 px-4 py-3 border-b-2 border-gray-200">
                     <span className="text-left text-xs font-semibold text-gray-600">CREATE_DATE</span>
                   </div>
                   {type === "all" ? (
                     <>
-                      <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                      <div className="w-1/12 px-4 py-3 border-b-2 border-gray-200">
                         <span className="text-left text-xs font-semibold text-gray-600">VIEW_COUNT</span>
                       </div>
-                      <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                      <div className="w-1/12 px-4 py-3 border-b-2 border-gray-200">
                         <span className="text-left text-xs font-semibold text-gray-600">FAVORITE_COUNT</span>
                       </div>
-                      <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                      <div className="w-1/11 px-4 py-3 border-b-2 border-gray-200">
                         <span className="text-left text-xs font-semibold text-gray-600">RECOMMEND_COUNT</span>
                       </div>
                     </>
                   ) : (
-                    <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                    <div className="w-1/7 px-4 py-3 border-b-2 border-gray-200">
                       <span className="text-left text-xs font-semibold text-gray-600">RESULT_TYPE</span>
                     </div>
                   )}
-                  <div className="w-1/6 px-4 py-3 border-b-2 border-gray-200">
+                  <div className="w-1/7 px-4 py-3 border-b-2 border-gray-200">
                     <span className="text-left text-xs font-semibold text-gray-600">DETAIL</span>
                   </div>
                 </div>

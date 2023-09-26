@@ -145,14 +145,14 @@ const Notice = () => {
           <div className="relative shadow rounded-lg min-h-[700px] ">
             <div className="">
               <div>
-                <div className="flex px-4 py-3 border-b-2 border-gray-200 bg-gray-100">
+                <div className="flex text-center px-4 py-3 border-b-2 border-gray-200 bg-gray-100">
                   <div className="w-2/5 text-left text-xs font-semibold text-gray-600">TITLE</div>
-                  <div className="w-2/5 text-left text-xs font-semibold text-gray-600">CONTENT</div>
-                  <div className="w-1/6 text-left text-xs font-semibold text-gray-600">WRITER</div>
-                  <div className="w-1/5 text-left text-xs font-semibold text-gray-600">modifiedDate</div>
-                  <div className="w-1/5 text-left text-xs font-semibold text-gray-600">viewCount</div>
-                  <div className="w-1/6 text-left text-xs font-semibold text-gray-600">EDIT</div>
-                  <div className="w-1/10 text-left text-xs font-semibold text-gray-600">DELETE</div>
+                  <div className="w-2/5 text-xs font-semibold text-gray-600">CONTENT</div>
+                  <div className="w-1/6 text-xs font-semibold text-gray-600">WRITER</div>
+                  <div className="w-1/5 text-xs font-semibold text-gray-600">modifiedDate</div>
+                  <div className="w-1/5 text-xs font-semibold text-gray-600">viewCount</div>
+                  <div className="w-1/6 text-xs font-semibold text-gray-600">EDIT</div>
+                  <div className="w-1/6 text-xs font-semibold text-gray-600">DELETE</div>
                 </div>
               </div>
               <ul>
